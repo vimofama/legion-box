@@ -1,0 +1,42 @@
+---
+// Define el número de teléfono único para todas las ubicaciones
+const phoneNumber = "593991234567"; // **REEMPLAZA con tu número de WhatsApp real (sin + ni espacios)**
+
+// Mensaje predeterminado para WhatsApp (URL-encoded)
+const encodedMessage = encodeURIComponent(
+  "¡Hola! Me gustaría agendar una clase de prueba gratuita en CrossFit Legión. Mi nombre es [Tu Nombre] y estoy interesado/a en comenzar a entrenar. ¿Podrían brindarme más información sobre horarios y disponibilidad? ¡Gracias!"
+);
+
+// Construye la URL completa de WhatsApp
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+---
+
+<section
+  class="hero min-h-screen bg-cover bg-center relative"
+  style="background-image: url(https://images.unsplash.com/photo-1639504031765-ca21aecb7252?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);"
+>
+  {/* Capa de superposición para mejor contraste del texto */}
+  <div class="absolute inset-0 bg-black opacity-60"></div>
+
+  <div class="hero-content text-center text-white relative z-10 p-4 sm:p-8">
+    <div class="max-w-xl mx-auto">
+      <h1
+        class="mb-6 text-5xl sm:text-6xl font-extrabold leading-tight tracking-tight"
+      >
+        Legion Fit Center <br class="hidden sm:inline" /> Tu Fuerza Comienza Aquí
+      </h1>
+      <p class="mb-8 text-lg sm:text-xl leading-relaxed opacity-90">
+        Prueba nuestro gimnasio y descubre un mundo de fitness, bienestar y una
+        comunidad que te impulsa. ¡Te esperamos para transformar tu vida!
+      </p>
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary btn-lg text-lg sm:text-xl px-8 py-3 transform hover:scale-105 transition-transform duration-300 shadow-xl"
+      >
+        ¡Reserva tu Clase Gratis!
+      </a>
+    </div>
+  </div>
+</section>

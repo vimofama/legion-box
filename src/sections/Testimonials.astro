@@ -1,0 +1,71 @@
+---
+const testimonials = [
+  {
+    name: "María Fernanda P.",
+    image: "https://i.pravatar.cc/150?img=1", // Avatar genérico
+    testimonial:
+      "¡Legión ha cambiado mi vida! La energía en el box es increíble y los coaches son súper profesionales. He logrado metas que nunca imaginé. ¡100% recomendado para cualquiera que quiera superar sus límites!",
+  },
+  {
+    name: "Roberto C.",
+    image: "https://i.pravatar.cc/150?img=2", // Avatar genérico
+    testimonial:
+      "Llevo varios meses en CrossFit Legión y los resultados son notorios. La programación es desafiante y variada, y el ambiente de comunidad te impulsa a dar lo mejor de ti en cada WOD. ¡Un equipo de primera!",
+  },
+  {
+    name: "Ana Lucía M.",
+    image: "https://i.pravatar.cc/150?img=3", // Avatar genérico
+    testimonial:
+      "Desde que empecé en Legión, siento que mi fuerza y resistencia han mejorado muchísimo. Los entrenadores están muy pendientes de la técnica, lo cual me da mucha seguridad. ¡Me encanta entrenar aquí!",
+  },
+  {
+    name: "Javier S.",
+    image: "https://i.pravatar.cc/150?img=4", // Avatar genérico
+    testimonial:
+      "El mejor ambiente para entrenar CrossFit en Ambato. Los compañeros te motivan y los coaches te exigen de la mejor manera. Es más que un gimnasio, ¡es una verdadera comunidad! He aprendido mucho sobre mí mismo.",
+  },
+  {
+    name: "Carla G.",
+    image: "https://i.pravatar.cc/150?img=5", // Avatar genérico
+    testimonial:
+      "Al principio estaba un poco nerviosa, pero en Legión me hicieron sentir bienvenida desde el primer día. La paciencia y el conocimiento de los coaches son excelentes. ¡Ahora disfruto cada entrenamiento y me siento más fuerte!",
+  },
+  {
+    name: "Diego R.",
+    image: "https://i.pravatar.cc/150?img=6", // Avatar genérico
+    testimonial:
+      "CrossFit Legión es el lugar ideal para desafiarte. Cada día es diferente y nunca te aburres. La camaradería es genial y los resultados, si eres constante, son impresionantes. ¡Gracias, Legión, por motivarme cada día!",
+  },
+];
+---
+
+<section class="px-12 py-8">
+  <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-6">
+    Testimonios de Nuestros Atletas
+  </h2>
+  <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-8">
+    {
+      testimonials.map((testimonial) => (
+        <div class="flex flex-col md:flex-row items-start gap-6 bg-base-100 p-8 rounded-lg shadow-md relative overflow-hidden">
+          <div class="flex-shrink-0">
+            <div class="avatar">
+              <div class="w-24 h-24 rounded-full overflow-hidden object-cover shadow-lg">
+                <img
+                  src={testimonial.image}
+                  alt={`Avatar de ${testimonial.name}`}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="flex-grow">
+            <blockquote class="text-gray-700 text-lg leading-relaxed mb-4">
+              <p>"{testimonial.testimonial}"</p>
+            </blockquote>
+            <p class="font-bold text-lg text-gray-800">{testimonial.name}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

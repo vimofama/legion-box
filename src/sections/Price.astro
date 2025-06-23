@@ -1,0 +1,148 @@
+---
+const planes = [
+  {
+    nombre: "Plan Mensual",
+    precio: "40",
+    unidad: "USD",
+    descripcion: "Acceso ilimitado a todas las clases durante un mes.",
+    destacado: false,
+    beneficios: [
+      "Flexibilidad total",
+      "Clases ilimitadas",
+      "Entrenamiento funcional",
+    ],
+  },
+  {
+    nombre: "2 Meses",
+    precio: "70",
+    unidad: "USD",
+    descripcion: "Opción ideal para probar más a fondo nuestro centro.",
+    destacado: true,
+    beneficios: [
+      "Ahorro comparado al mensual",
+      "Clases ilimitadas",
+      "Planificación a mediano plazo",
+    ],
+  },
+  {
+    nombre: "Plan Pareja (x2)",
+    precio: "70",
+    unidad: "USD",
+    descripcion: "Entrenen juntos y motívense mutuamente con este plan.",
+    destacado: false, // Lo destacamos como una opción especial
+    beneficios: [
+      "Precio especial para dos",
+      "Motivación compartida",
+      "Clases ilimitadas para ambos",
+    ],
+  },
+  {
+    nombre: "Plan Trimestral",
+    precio: "100",
+    unidad: "USD",
+    descripcion: "Compromiso de 3 meses para resultados sostenibles.",
+    destacado: false,
+    beneficios: [
+      "Mayor ahorro",
+      "Acceso continuo",
+      "Seguimiento personalizado",
+    ],
+  },
+  {
+    nombre: "Plan Semestral",
+    precio: "200",
+    unidad: "USD",
+    descripcion: "Seis meses de dedicación a tu bienestar y fuerza.",
+    destacado: false,
+    beneficios: [
+      "Ahorro significativo",
+      "Consistencia en el entrenamiento",
+      "Progreso garantizado",
+    ],
+  },
+  {
+    nombre: "Plan Anual",
+    precio: "380",
+    unidad: "USD",
+    descripcion: "La mejor inversión en tu salud y condición física.",
+    destacado: false,
+    beneficios: [
+      "Máximo ahorro anual",
+      "Compromiso a largo plazo",
+      "Acceso prioritario a eventos",
+    ],
+  },
+];
+
+const inscripcion = "10 USD";
+---
+
+<section class="px-12 py-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-6">
+      Nuestros Planes de Entrenamiento
+    </h2>
+    <p class="text-xl text-center text-gray-700 mb-12">
+      En CrossFit Legión, tenemos un plan ideal para cada objetivo y estilo de
+      vida. ¡Elige el tuyo y únete a la legión!
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        planes.map((plan) => (
+          <div
+            class={`card bg-white shadow-xl border ${
+              plan.destacado
+                ? "border-blue-500 ring-4 ring-blue-200"
+                : "border-gray-200"
+            } transform hover:scale-105 transition-all duration-300`}
+          >
+            <div class="card-body p-8 items-center text-center">
+              <h3 class="card-title text-3xl font-bold mb-4 text-gray-900">
+                {plan.nombre}
+              </h3>
+              <div class="text-5xl font-extrabold text-blue-600 mb-4">
+                {plan.precio}
+                <span class="text-2xl font-semibold ml-1">{plan.unidad}</span>
+              </div>
+              <p class="text-gray-600 mb-6 flex-grow">{plan.descripcion}</p>
+
+              <ul class="text-left space-y-2 mb-6 w-full">
+                {plan.beneficios.map((beneficio) => (
+                  <li class="flex items-center text-gray-700 text-lg">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 text-green-500 mr-2 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {beneficio}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      class="text-center mt-16 p-8 bg-white rounded-lg shadow-xl border border-gray-200"
+    >
+      <p class="text-2xl font-bold text-gray-800">
+        Inscripción Única: <span class="text-blue-600">{inscripcion}</span>
+      </p>
+      <p class="text-lg text-gray-600 mt-2">
+        Asegura tu cupo en la mejor comunidad de CrossFit en Ambato.
+      </p>
+    </div>
+  </div>
+</section>

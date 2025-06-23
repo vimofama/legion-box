@@ -1,0 +1,140 @@
+---
+// No se necesita JavaScript en el frontmatter para esta funcionalidad,
+// la lógica se manejará directamente en el script del componente.
+---
+
+<section
+  class="px-12 py-8 bg-gradient-to-r from-blue-600 to-indigo-700 text-white"
+>
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-center mb-10 leading-tight">
+      Calcula tu IMC <br class="hidden sm:inline" /> y Empieza tu Transformación
+    </h2>
+
+    <div class="bg-white text-gray-800 p-8 rounded-lg shadow-2xl">
+      <p class="text-center text-lg mb-6">
+        Introduce tu peso y altura para saber tu Índice de Masa Corporal y
+        descubre cómo CrossFit Legión puede ayudarte a alcanzar tus objetivos.
+      </p>
+
+      <form id="imc-form" class="space-y-6">
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text text-lg font-medium">Peso (kg):</span>
+          </label>
+          <input
+            type="number"
+            id="weight"
+            placeholder="Ej: 70"
+            class="input input-bordered w-full text-lg p-3"
+            step="0.1"
+            min="1"
+            required
+          />
+        </div>
+
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text text-lg font-medium">Altura (m):</span>
+          </label>
+          <input
+            type="number"
+            id="height"
+            placeholder="Ej: 1.75"
+            class="input input-bordered w-full text-lg p-3"
+            step="0.01"
+            min="0.5"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary btn-block text-xl py-3 mt-8"
+        >
+          Calcular IMC
+        </button>
+      </form>
+
+      <div id="imc-result" class="mt-8 p-6 bg-base-200 rounded-lg hidden">
+        <p class="text-xl font-bold text-center mb-3">
+          Tu IMC es: <span id="imc-value" class="text-3xl text-blue-700"></span>
+        </p>
+        <p id="imc-category" class="text-center text-xl font-semibold mb-4"></p>
+        <p id="imc-message" class="text-center text-lg leading-relaxed"></p>
+
+        <div class="text-center mt-6">
+          <a href="#" class="btn btn-soft text-lg"
+            >¡Agenda una clase de prueba!</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("imc-form") as HTMLFormElement;
+    const weightInput = document.getElementById("weight") as HTMLInputElement;
+    const heightInput = document.getElementById("height") as HTMLInputElement;
+    const imcResultDiv = document.getElementById(
+      "imc-result"
+    ) as HTMLDivElement;
+    const imcValueSpan = document.getElementById(
+      "imc-value"
+    ) as HTMLSpanElement;
+    const imcCategoryP = document.getElementById(
+      "imc-category"
+    ) as HTMLParagraphElement;
+    const imcMessageP = document.getElementById(
+      "imc-message"
+    ) as HTMLParagraphElement;
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault(); // Prevenir el envío del formulario
+
+      const weight = parseFloat(weightInput.value);
+      const height = parseFloat(heightInput.value);
+
+      if (isNaN(weight) || isNaN(height) || height <= 0) {
+        alert("Por favor, ingresa valores válidos para peso y altura.");
+        return;
+      }
+
+      const imc = weight / (height * height);
+      imcValueSpan.textContent = imc.toFixed(2); // Mostrar IMC con 2 decimales
+      imcResultDiv.classList.remove("hidden"); // Mostrar el div de resultados
+
+      let category = "";
+      let message = "";
+      let categoryColor = "";
+
+      if (imc < 18.5) {
+        category = "Bajo peso";
+        categoryColor = "text-orange-500";
+        message = `Un IMC bajo podría indicar que necesitas fortalecerte y ganar masa muscular. En CrossFit Legión, te ayudamos con entrenamientos enfocados en fuerza y nutrición para alcanzar un peso saludable y un cuerpo más fuerte. ¡Empieza a construir tu mejor versión!`;
+      } else if (imc >= 18.5 && imc < 24.9) {
+        category = "Peso saludable";
+        categoryColor = "text-green-600";
+        message = `¡Felicidades, tu IMC está en un rango saludable! En CrossFit Legión, te ofrecemos la oportunidad de mantener y mejorar tu condición física, desarrollar nuevas habilidades y llevar tu rendimiento al siguiente nivel. ¡Desafíate con nosotros!`;
+      } else if (imc >= 25 && imc < 29.9) {
+        category = "Sobrepeso";
+        categoryColor = "text-orange-600";
+        message = `Un IMC en el rango de sobrepeso es una señal para tomar acción. En CrossFit Legión, te brindamos un plan de entrenamiento desafiante y un ambiente de apoyo para ayudarte a quemar grasa, aumentar masa muscular y mejorar tu bienestar general. ¡Es el momento de un cambio!`;
+      } else {
+        category = "Obesidad";
+        categoryColor = "text-red-600";
+        message = `El IMC en este rango indica la necesidad de un cambio significativo. En CrossFit Legión, estamos comprometidos a ayudarte a transformar tu salud. Nuestros coaches te guiarán de forma segura para mejorar tu condición física, perder peso y construir hábitos saludables. ¡Da el primer paso hacia una vida más activa y plena!`;
+      }
+
+      imcCategoryP.textContent = `Categoría: ${category}`;
+      imcCategoryP.className = `text-center text-xl font-semibold mb-4 ${categoryColor}`; // Aplica el color
+      imcMessageP.textContent = message;
+    });
+  });
+</script>
+
+<style>
+  /* Aquí puedes añadir estilos CSS específicos si DaisyUI/Tailwind no cubren todo */
+</style>

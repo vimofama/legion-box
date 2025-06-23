@@ -1,0 +1,86 @@
+---
+const ubicaciones = [
+  {
+    nombre: "Sede San Antonio",
+    direccion: "Av. Shyris e Incas junto a brisa y mar, Ambato, Tungurahua",
+    no: "01",
+    googleMapsEmbedUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.0507282871313!2d-78.63345492522258!3d-1.2520081987360716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d381765a9eeb4f%3A0x27a772db7fdb63ee!2sLEGION%20FITNESS%20CENTER%20(CF)!5e1!3m2!1ses-419!2sec!4v1750645344873!5m2!1ses-419!2sec",
+  },
+  {
+    nombre: "Sede Izamba",
+    direccion: "AV. Pedro Vasconez y calle Modesto Chacón, Ambato, Tungurahua",
+    no: "02",
+    googleMapsEmbedUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.089292652564!2d-78.58683942522266!3d-1.2253482987629636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d381750590d0fd%3A0xf06e4747bb1ecbce!2sLEGION%20CF%20IZAMBA!5e1!3m2!1ses-419!2sec!4v1750645317473!5m2!1ses-419!2sec",
+  },
+  {
+    nombre: "Sede Pelileo",
+    direccion:
+      "Av. Maldonado y Calle Manuelita Sáenz, Diagonal al Sindicato de Choferes, Pelileo, Tungurahua",
+    no: "03",
+    googleMapsEmbedUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3832.9310687691964!2d-78.55105712522244!3d-1.3313365986560444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d38511ac0be725%3A0x2ffeba70c0f544e2!2sLEGION%20CF%202%20Pelileo!5e1!3m2!1ses-419!2sec!4v1750645251524!5m2!1ses-419!2sec",
+  },
+];
+---
+
+<section class="px-12 py-16">
+  <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-6">
+    Nuestras Ubicaciones
+  </h2>
+  <p class="text-xl text-center text-gray-700 mb-12">
+    Encuentra tu centro CrossFit Legión más cercano y únete a nuestra comunidad.
+  </p>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-6">
+    {
+      ubicaciones.map((ubicacion) => (
+        <div class="card border border-gray-300 shadow-xl bg-white overflow-hidden">
+          <div class="card-body p-6 flex flex-col h-full">
+            <div class="flex-grow mb-4">
+              <div class="flex items-center gap-3 group mb-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                  />
+                </svg>
+                <h3 class="card-title text-xl font-bold text-gray-800">
+                  {ubicacion.nombre}
+                </h3>
+              </div>
+              <p class="text-gray-600 text-base">{ubicacion.direccion}</p>
+            </div>
+            {/* Iframe de Google Maps optimizado */}
+            <div class="w-full h-64 rounded-md overflow-hidden shadow-md">
+              <iframe
+                src={ubicacion.googleMapsEmbedUrl}
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title={`Mapa de ${ubicacion.nombre}`}
+              />
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,44 @@
+---
+const coaches = [
+  {
+    name: "CARLOS SUÁREZ",
+    image: "https://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+  },
+  {
+    name: "SEBASTIÁN ARIAS",
+    image: "https://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+  },
+  {
+    name: "JONATHAN GER",
+    image: "https://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+  },
+  {
+    name: "EDUARDO CORDOVA",
+    image: "https://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+  },
+  {
+    name: "JANNER GUERRERO",
+    image: "https://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+  },
+];
+---
+
+<section class="px-12 py-8">
+  <h2 class="text-4xl font-extrabold text-center mb-10 leading-tight">
+    Conoce a nuestros entrenadores
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
+    {
+      coaches.map((coach) => (
+        <div class="card bg-base-100 w-96">
+          <figure>
+            <img src={coach.image} alt={coach.name} class="w-40 h-40" />
+          </figure>
+          <div class="card-body">
+            <p class="text-center text-xl font-semibold">{coach.name}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

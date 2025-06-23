@@ -1,0 +1,61 @@
+---
+const faqs = [
+  {
+    question: "¿Necesito estar en forma para empezar CrossFit?",
+    answer:
+      "¡Absolutamente no! El CrossFit es para todos. Nuestros entrenadores están capacitados para adaptar cada ejercicio a tu nivel actual de condición física, desde principiantes hasta atletas avanzados. Lo importante es tener ganas de mejorar y moverte.",
+  },
+  {
+    question: "¿Cómo es una clase típica en CrossFit Legión?",
+    answer:
+      "Una clase de CrossFit Legión tiene una duración de 1 hora. Incluye un calentamiento (Warm Up) para preparar tu cuerpo, una fase de explicación y práctica de técnica para los movimientos del día, un entrenamiento de fuerza, y el 'MetCon' (trabajo metabólico) que es la parte más intensa. Cerramos con un enfriamiento. ¡Cada día es un nuevo desafío!",
+  },
+  {
+    question: "¿Qué es un WOD y qué hago si no puedo hacer un ejercicio?",
+    answer:
+      "WOD significa 'Workout of the Day' (Entrenamiento del Día). Cada día es diferente, lo que mantiene la motivación. Si hay un ejercicio que no puedes realizar, ¡no te preocupes! Nuestros coaches son expertos en ofrecer modificaciones y alternativas para que siempre puedas participar de forma segura y efectiva, adaptado a tus capacidades.",
+  },
+  {
+    question: "¿Es seguro practicar CrossFit? ¿Y si tengo una lesión?",
+    answer:
+      "Con la supervisión de nuestros coaches certificados, el CrossFit es muy seguro, ya que priorizamos la técnica correcta y la adaptación. Si tienes una lesión o molestia, es crucial que nos lo comuniques. Podemos adaptar tus entrenamientos para ayudarte en tu recuperación y, si es necesario, referirte a profesionales de la salud para un manejo adecuado. Tu seguridad es nuestra prioridad.",
+  },
+  {
+    question:
+      "¿Qué diferencia hay entre CrossFit Legión y un gimnasio convencional?",
+    answer:
+      "En CrossFit Legión, no solo entrenas, ¡te unes a una comunidad! Nos centramos en entrenamientos funcionales de alta intensidad en grupo, con la guía constante de coaches. A diferencia de un gimnasio convencional, donde a menudo entrenas solo y sin un programa estructurado, aquí encontrarás un ambiente de apoyo, variedad constante y un equipo que te empuja a lograr tus metas.",
+  },
+  {
+    question:
+      "¿Cuánto cuestan las membresías y cómo puedo agendar una clase de prueba?",
+    answer:
+      "Ofrecemos una variedad de planes para que encuentres el que mejor se adapte a ti (puedes verlos en nuestra sección de 'Planes'). ¡Lo mejor es que puedes empezar con una clase de prueba totalmente gratis! Contáctanos directamente por WhatsApp haciendo clic en el botón de 'Agendar Clase de Prueba' en nuestra web para obtener más información y reservar tu cupo.",
+  },
+];
+---
+
+<section class="px-12 py-16">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-center mb-6 leading-tight">
+      Preguntas Frecuentes <br class="hidden sm:inline" /> Sobre CrossFit Legión
+    </h2>
+    <p class="text-xl text-center mb-12 opacity-90">
+      Aquí resolvemos las dudas más comunes para que empieces tu camino fitness
+      con total confianza.
+    </p>
+
+    <div class="space-y-4">
+      {/* Espacio entre los collapsibles */}
+      {
+        faqs.map((faq) => (
+          <div class="collapse collapse-plus bg-base-100 border border-base-300">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title font-semibold">{faq.question}</div>
+            <div class="collapse-content text-sm">{faq.answer}</div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

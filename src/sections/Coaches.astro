@@ -24,13 +24,11 @@ const coaches = [
 ---
 
 <section class="px-12 py-8">
-  <h2 class="text-4xl font-extrabold text-center mb-10 leading-tight">
-    Conoce a nuestros entrenadores
-  </h2>
+  <h2 class="title">Conoce a nuestros entrenadores</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
     {
       coaches.map((coach) => (
-        <div class="card bg-base-100 w-96">
+        <div class="card bg-base-100">
           <figure>
             <img src={coach.image} alt={coach.name} class="w-40 h-40" />
           </figure>

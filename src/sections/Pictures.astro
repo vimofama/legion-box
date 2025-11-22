@@ -32,7 +32,7 @@ const imagenes = [
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             {
-                imagenes.map((imagen, index) => {
+                imagenes.map((imagen) => {
                     return (
                         <!-- Slides -->
                             <div class="swiper-slide">
@@ -62,7 +62,7 @@ const imagenes = [
     import Swiper from 'swiper';
     import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 
-    const swiper = new Swiper('.swiper', {
+    new Swiper('.swiper', {
         // Optional parameters
         direction: 'horizontal',
         loop: true,
